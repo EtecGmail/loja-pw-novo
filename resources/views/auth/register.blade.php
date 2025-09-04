@@ -47,7 +47,7 @@
       font-size: 2rem;
       font-weight: 600;
     }
-    /* grupos de input */
+    /* Grupos de entrada */
     .input-group {
       margin-bottom: 20px;
       text-align: left;
@@ -89,7 +89,7 @@
     .btn-register:hover {
       background: #7e34a5e5;
     }
-    /* Feedback erros */
+    /* Mensagens de erro */
     .feedback {
       background: rgba(255, 0, 0, 0.3);
       padding: 10px;
@@ -122,7 +122,7 @@
   <div class="register-container">
     <h1>Cadastro</h1>
     
-    <!-- Feedback erros de validação -->
+    <!-- Mensagens de erro de validação -->
     @if ($errors->any())
       <div class="feedback">
         <ul>

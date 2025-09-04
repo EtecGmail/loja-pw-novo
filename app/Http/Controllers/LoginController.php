@@ -9,13 +9,13 @@ use App\Providers\RouteServiceProvider;
 
 class LoginController extends Controller
 {
-    // Exibe a view de login
+    // Exibe o formulário de login
     public function index()
     {
         return view('auth.login');
     }
 
-    // Processa o login
+    // Processa a autenticação
     public function store(Request $request)
     {
         $credentials = $request->validate([
@@ -23,26 +23,26 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        // Tenta autenticar com o modelo LoginModel
+        // Busca o usuário pelo e-mail informado
         $usuario = LoginModel::where('emailUsuario', $request->email)->first();
 
         if ($usuario && \Hash::check($request->password, $usuario->senhaUsuario)) {
-            // Se o usuário for encontrado e a senha for correta, faz o login
+            // Autentica o usuário quando as credenciais estão corretas
             Auth::login($usuario);
 
-            // Regenera a sessão para evitar fixação de sessão
+            // Regenera a sessão para prevenir fixação
             $request->session()->regenerate();
 
             return redirect()->to(RouteServiceProvider::HOME);
         }
 
-        // Se as credenciais forem inválidas, retorna com erro
+        // Retorna erro quando as credenciais são inválidas
         return back()->withErrors([
             'email' => 'Credenciais inválidas. Verifique seu e-mail e senha.'
         ])->withInput();
     }
 
-    // Realiza o logout
+    // Encerra a sessão do usuário
     public function destroy(Request $request)
     {
         Auth::logout();

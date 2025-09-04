@@ -47,7 +47,7 @@
       font-size: 2rem;
       font-weight: 600;
     }
-    /* Os de input */
+    /* Campos de entrada */
     .input-group {
       margin-bottom: 20px;
       text-align: left;
@@ -90,7 +90,7 @@
     .btn-login:hover {
       background: #7e34a5e5;
     }
-    /* Feedback erros */
+    /* Mensagens de erro */
     .feedback {
       background: rgba(255, 0, 0, 0.3);
       padding: 10px;
@@ -140,7 +140,7 @@
   <div class="login-container">
     <h1>Login</h1>
     
-    <!-- feedback erros -->
+    <!-- Mensagens de erro -->
     @if ($errors->any())
       <div class="feedback">
         <ul>
