@@ -171,7 +171,7 @@
       </div>
     </form>
     <div class="register">
-      Não tem uma conta? <a href="{{ route('register.index') }}">Cadastre-se</a>
+      Não tem uma conta? <a href="{{ route('register') }}">Cadastre-se</a>
     </div>
   </div>
 </body>

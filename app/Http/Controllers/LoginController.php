@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\LoginModel;
+use App\Providers\RouteServiceProvider;
 
 class LoginController extends Controller
 {
@@ -32,7 +33,7 @@ class LoginController extends Controller
             // Regenera a sessão para evitar fixação de sessão
             $request->session()->regenerate();
 
-            return redirect()->route('welcome'); // Altere para a rota da sua home
+            return redirect()->to(RouteServiceProvider::HOME);
         }
 
         // Se as credenciais forem inválidas, retorna com erro
@@ -47,6 +48,6 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login.index');
+        return redirect()->route('login');
     }
 }

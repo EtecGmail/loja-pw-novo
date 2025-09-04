@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\LoginModel; // Modelo que interage com a tabela tb_usuarios
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class RegisterController extends Controller
 {
@@ -36,6 +37,6 @@ class RegisterController extends Controller
         Auth::login($usuarioo);
 
         // Redireciona para a home após o cadastro
-        return redirect()->route('welcome')->with('success', 'Cadastro realizado com sucesso!');
+        return redirect()->to(RouteServiceProvider::HOME)->with('success', 'Cadastro realizado com sucesso!');
     }
 }

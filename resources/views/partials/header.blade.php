@@ -79,21 +79,23 @@
 <header class="site-header">
   <nav class="navbar">
     <div class="container">
-      <a href="{{ route('welcome') }}" class="logo">GHOUL HIGH</a>
+      <a href="{{ route('home') }}" class="logo">GHOUL HIGH</a>
       <ul class="nav-links">
-        <li><a href="{{ route('welcome') }}">Início</a></li>
+        <li><a href="{{ route('home') }}">Início</a></li>
         @guest
-          <li><a href="{{ route('login.index') }}">Login</a></li>
-          <li><a href="{{ route('register.index') }}">Cadastre-se</a></li>
-        @else
-        <li><a href="#">{{ auth()->user()->nomeUsuario }}</a></li>
-        <li>
-            <form action="{{ route('logout') }}" method="POST" class="logout-form">
+          <li><a href="{{ route('login') }}">Login</a></li>
+          <li><a href="{{ route('register') }}">Cadastro</a></li>
+        @endguest
+
+        @auth
+          <li><a href="{{ route('dashboard') }}">Minha Conta</a></li>
+          <li>
+            <form method="POST" action="{{ route('logout') }}" class="logout-form">
               @csrf
-              <button type="submit" class="logout-btn">Logout</button>
+              <button type="submit" class="logout-btn">Sair</button>
             </form>
           </li>
-        @endguest
+        @endauth
       </ul>
     </div>
   </nav>
