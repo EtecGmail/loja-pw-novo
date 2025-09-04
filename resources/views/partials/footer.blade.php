@@ -76,7 +76,7 @@
     }
 
 
-    /*responsive*/
+    /* Responsividade */
     @media(max-width: 767px){
     .footer-col{
         width: 50%;

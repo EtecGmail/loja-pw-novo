@@ -15,7 +15,7 @@ class ContatoModel extends Model implements Authenticatable
 
     protected $fillable = ['nome', 'email', 'senha', 'created_at', 'updated_at'];
 
-    // Mutator para criptografar a senha antes de salvar no banco
+    // Criptografa a senha antes de salvar no banco de dados
     public function setSenhaAttribute($value)
     {
         $this->attributes['senha'] = bcrypt($value);

@@ -1,5 +1,5 @@
 <style>
-/* Header Styles */
+/* Estilos do cabeçalho */
 .site-header {
   width: 100%;
   background: linear-gradient(to right,#0d0614, #0d0614, #582574, #582574);
@@ -61,7 +61,7 @@
   color: #f39c12;
 }
 
-/* Responsividade (opcional) */
+/* Responsividade */
 @media (max-width: 768px) {
   .navbar .container {
     flex-direction: column;

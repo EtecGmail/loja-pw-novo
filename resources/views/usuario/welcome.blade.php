@@ -11,7 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Elsie+Swash+Caps:wght@400;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-        @font-face {font-family: 'Brice-RegularSemiExpanded'; /* Nome que você escolhe */
+        @font-face {font-family: 'Brice-RegularSemiExpanded'; /* Nome da fonte */
                     src:url('Brice-RegularSemiExpanded.woff2') format('woff2'),
                         url('Brice-RegularSemiExpanded.woff') format('woff');
                     font-weight: normal;
@@ -72,8 +72,6 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to right,#5c2373,rgb(179, 40, 98));
-            /*background: linear-gradient(to right, #a70f72,#a70f72,#a70f72,#5c2373);*/
-            /*clip-path: polygon(45% 0%, 100% 0%, 100% 100%, 25% 100%);*/
             clip-path: polygon(45% 0%, 100% 0%, 100% 100%, 75% 100%);
             z-index: 0;
         }
@@ -336,9 +334,7 @@
         .boxTotalAvali:hover{
             transform: translateY(-4px);
         }
-        /*.boxTotalAvali:hover>:not(:hover):not(.imgAvali){
-            opacity: 0.4;
-        }*/
+
 
         .imgAvali{
             width: 45%;
