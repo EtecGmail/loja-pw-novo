@@ -154,7 +154,7 @@
       <button type="submit" class="btn-register">Cadastrar</button>
     </form>
     <div class="login-link">
-      Já possui uma conta? <a href="{{ route('login.index') }}">Faça login</a>
+      Já possui uma conta? <a href="{{ route('login') }}">Faça login</a>
     </div>
   </div>
 </body>

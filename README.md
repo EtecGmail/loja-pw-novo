@@ -59,3 +59,41 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Como rodar
+
+1. **Pré-requisitos** (Windows):
+   - XAMPP (Apache + MySQL/MariaDB)
+   - Composer configurado para usar `C:\xampp\php\php.exe`
+   - Extensões: openssl, pdo_mysql, mbstring, tokenizer, xml, ctype, json, bcmath
+
+2. **Configurar `.env`:**
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=loja_pw_novo
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+3. **Instalar e preparar:**
+   ```bash
+   composer install
+   cp .env.example .env
+   php artisan key:generate
+   php artisan migrate
+   npm ci
+   npm run build
+   ```
+
+4. **Executar:**
+   - Dev: `php artisan serve` → http://127.0.0.1:8000
+   - Apache (XAMPP): servir a pasta `public/`
+
+5. **Validação manual:**
+   - `/` mostra links de **Login/Cadastro** para visitantes
+   - Após logar ou registrar, redireciona para `/dashboard`
+   - Navbar autenticada exibe **Minha Conta/Sair**
+   - Logout retorna a navbar para **Login/Cadastro**
+   - Acesso a `/dashboard` sem login redireciona para `/login`

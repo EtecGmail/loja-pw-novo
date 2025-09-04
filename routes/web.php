@@ -4,21 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
-Route::middleware(['web'])->group(function () {
+Route::view('/', 'usuario.welcome')->name('home');
 
-// Página inicial (home)
-Route::get('/', function () {
-    return view('usuario.welcome');
-})->name('welcome');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
-// Rotas de autenticação (login e logout)
-Route::controller(LoginController::class)->group(function(){
-    Route::get('/login', 'index')->name('login.index');
-    Route::post('/login', 'store')->name('login.store');
-    Route::post('/logout', 'destroy')->name('logout');
-});
-
-// Rotas de cadastro (registro)
-Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
+Route::middleware('auth')->group(function () {
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
 });
